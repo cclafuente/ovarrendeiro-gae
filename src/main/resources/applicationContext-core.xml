@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       default-init-method="init">
+
+  <!-- DAO layer access -->
+  <bean id="productDao" class="es.panaderiaovarrendeiro.gae.dao.ProductJdoDao">
+  	<property name="persistenceManagerFactory" ref="pmf"/>
+  </bean>
+  
+  <bean id="imageDao" class="es.panaderiaovarrendeiro.gae.dao.ImageJdoDao">
+  	<property name="persistenceManagerFactory" ref="pmf"/>
+  </bean>
+  
+  <bean id="noticeDao" class="es.panaderiaovarrendeiro.gae.dao.BaseJdoDao">
+  	<constructor-arg value="es.panaderiaovarrendeiro.gae.model.Notice"/>
+  	<property name="persistenceManagerFactory" ref="pmf"/>
+  </bean>
+  
+  <bean id="customerDao" class="es.panaderiaovarrendeiro.gae.dao.BaseJdoDao">
+  	<constructor-arg value="es.panaderiaovarrendeiro.gae.model.Customer"/>
+  	<property name="persistenceManagerFactory" ref="pmf"/>
+  </bean>
+  
+  <bean id="facturaLineaDao" class="es.panaderiaovarrendeiro.gae.dao.BaseJdoDao">
+  	<constructor-arg value="es.panaderiaovarrendeiro.gae.model.FacturaLinea"/>
+  	<property name="persistenceManagerFactory" ref="pmf"/>
+  </bean>
+  
+  <bean id="facturaDao" class="es.panaderiaovarrendeiro.gae.dao.FacturaJdoDao">
+  	<constructor-arg value="es.panaderiaovarrendeiro.gae.model.Factura"/>
+  	<property name="persistenceManagerFactory" ref="pmf"/>
+  </bean>
+  
+  <bean id="pedidoDao" class="es.panaderiaovarrendeiro.gae.dao.PedidoJdoDao">
+  	<constructor-arg value="es.panaderiaovarrendeiro.gae.model.Pedido"/>
+  	<property name="persistenceManagerFactory" ref="pmf"/>
+  </bean>
+  
+  <!-- service layer -->
+  <bean id="imageManager" class="es.panaderiaovarrendeiro.gae.service.images.ImageManagerImpl" autowire="byName"/>
+  <bean id="productManager" class="es.panaderiaovarrendeiro.gae.service.products.ProductManagerImpl" autowire="byName"/>
+  <bean id="productBeanManager" class="es.panaderiaovarrendeiro.gae.service.products.ProductBeanManagerImpl" autowire="byName"/>
+  <bean id="noticeManager" class="es.panaderiaovarrendeiro.gae.service.notices.NoticeManagerImpl" autowire="byName"/>
+  <bean id="customerManager" class="es.panaderiaovarrendeiro.gae.service.customers.CustomerManagerImpl" autowire="byName"/>
+  <bean id="facturaManager" class="es.panaderiaovarrendeiro.gae.service.facturas.FacturaManagerImpl" autowire="byName"/>
+  <bean id="pedidoManager" class="es.panaderiaovarrendeiro.gae.service.pedidos.PedidoManagerImpl" autowire="byName"/>
+  
+</beans>

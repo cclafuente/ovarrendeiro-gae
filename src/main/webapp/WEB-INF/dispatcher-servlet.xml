@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       default-init-method="init">
+  
+  <bean id="indexController" name="/index.do"
+  	class="es.panaderiaovarrendeiro.gae.web.IndexController">
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  	<property name="noticeManager" ref="noticeManager"/>
+  </bean>
+  
+  <bean id="localizacionController" name="/localizacion.do"
+  	class="es.panaderiaovarrendeiro.gae.web.LocalizacionController">
+  </bean>
+  
+  <bean id="carballoController" name="/carballo.do"
+  	class="es.panaderiaovarrendeiro.gae.web.LocalizacionController">
+  </bean>
+  
+  <bean id="productImagesController" name="/productImages.do"
+  	class="es.panaderiaovarrendeiro.gae.web.products.ProductImagesController">
+  	<property name="imageManager" ref="imageManager"/>
+  </bean>
+  
+  <bean id="productFormController" name="/productForm.do"
+  	class="es.panaderiaovarrendeiro.gae.web.products.ProductFormController">
+  	<property name="productManager" ref="productManager"/>
+  	<property name="imageManager" ref="imageManager"/>
+  </bean>
+  
+  <bean id="productListController" name="/productList.do"
+  	class="es.panaderiaovarrendeiro.gae.web.products.ProductListController">
+  	<property name="adminList" value="false"/>
+  	<property name="tipoBusqueda" value="2"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  </bean>
+  
+  <bean id="productRepoListController" name="/productRepoList.do"
+  	class="es.panaderiaovarrendeiro.gae.web.products.ProductListController">
+  	<property name="adminList" value="false"/>
+  	<property name="tipoBusqueda" value="3"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  </bean>
+  
+  <bean id="productAdminController" name="/productAdminList.do"
+  	class="es.panaderiaovarrendeiro.gae.web.products.ProductListController">
+  	<property name="adminList" value="true"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  </bean>
+  
+  <bean id="productDetailsController" name="/productDetails/*"
+  	class="es.panaderiaovarrendeiro.gae.web.products.ProductDetailsController">
+  	<property name="productManager" ref="productManager"/>
+  	<property name="imageManager" ref="imageManager"/>
+  </bean>
+  
+  <bean id="noticeListController" name="/noticeList.do"
+  	class="es.panaderiaovarrendeiro.gae.web.notices.NoticeListController">
+  	<property name="noticeManager" ref="noticeManager"/>
+  </bean>
+  
+  <bean id="noticeFormController" name="/noticeForm.do"
+  	class="es.panaderiaovarrendeiro.gae.web.notices.NoticeFormController">
+  	<property name="noticeManager" ref="noticeManager"/>
+  </bean>
+  
+  <bean id="productLyteController" name="/productLyte.do"
+  	class="es.panaderiaovarrendeiro.gae.web.products.ProductLyteController">
+  	<property name="productManager" ref="productManager"/>
+  	<property name="imageManager" ref="imageManager"/>
+  </bean>
+  
+  <bean id="imageController" name="/image.do"
+  	class="es.panaderiaovarrendeiro.gae.web.ImageController">
+  	<property name="imageManager" ref="imageManager"/>
+  </bean>
+  
+  <bean id="customerFormController" name="/customerForm.do"
+  	class="es.panaderiaovarrendeiro.gae.web.customers.CustomerFormController">
+  	<property name="customerManager" ref="customerManager"/>
+  </bean>
+  
+  <bean id="customerListController" name="/customerList.do"
+  	class="es.panaderiaovarrendeiro.gae.web.customers.CustomerListController">
+  	<property name="customerManager" ref="customerManager"/>
+  </bean>
+  
+  <bean id="customerListTxtController" name="/customerListTxt.do"
+  	class="es.panaderiaovarrendeiro.gae.web.customers.CustomerListTxtController">
+  	<property name="customerManager" ref="customerManager"/>
+  </bean>
+  
+  <bean id="facturaFormController" name="/facturaForm.do"
+  	class="es.panaderiaovarrendeiro.gae.web.facturas.FacturaFormController">
+  	<property name="customerManager" ref="customerManager"/>
+  	<property name="facturaManager" ref="facturaManager"/>
+  </bean>
+  
+  <bean id="facturaFormAjaxController" name="/facturaFormAjax.do"
+  	class="es.panaderiaovarrendeiro.gae.web.facturas.FacturaFormAjaxController">
+  	<property name="facturaManager" ref="facturaManager"/>
+  </bean>
+  
+  <bean id="facturaListController" name="/facturaList.do"
+  	class="es.panaderiaovarrendeiro.gae.web.facturas.FacturaListController">
+  	<property name="facturaManager" ref="facturaManager"/>
+  	<property name="customerManager" ref="customerManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  </bean>
+  
+  <bean id="facturaListByDateController" name="/facturaListByDate.do"
+  	class="es.panaderiaovarrendeiro.gae.web.facturas.FacturaListByDateController">
+  	<property name="facturaManager" ref="facturaManager"/>
+  	<property name="customerManager" ref="customerManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  </bean>
+  
+  <bean id="facturaListByPeriodController" name="/facturaListByPeriod.do"
+  	class="es.panaderiaovarrendeiro.gae.web.facturas.FacturaListByPeriodController">
+  	<property name="facturaManager" ref="facturaManager"/>
+  	<property name="customerManager" ref="customerManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  </bean>
+  
+  <bean id="facturapaymentajaxController" name="/facturapaymentajax.do"
+  class="es.panaderiaovarrendeiro.gae.web.facturas.FacturaPaymentAjaxController">
+  	<property name="facturaManager" ref="facturaManager"/>
+  	<property name="customerManager" ref="customerManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  </bean>
+  
+  <bean id="pedidoFormController" name="/pedidoForm.do"
+  	class="es.panaderiaovarrendeiro.gae.web.pedidos.PedidoFormController">
+  	<property name="pedidoManager" ref="pedidoManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  </bean>
+  
+  <bean id="pedidoFormCustomerController" name="/pedidoFormCustomer.do"
+  	class="es.panaderiaovarrendeiro.gae.web.pedidos.PedidoFormCustomerController">
+  	<property name="pedidoManager" ref="pedidoManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  	<property name="customerManager" ref="customerManager" />
+  </bean>
+  
+  <bean id="pedidoListController" name="/pedidoList.do"
+  	class="es.panaderiaovarrendeiro.gae.web.pedidos.PedidoListController">
+  	<property name="pedidoManager" ref="pedidoManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  	<property name="customerManager" ref="customerManager"/>
+  	<property name="ajax" value="false"/>
+  </bean>
+  
+  <bean id="pedidoListControllerAjax" name="/pedidoListAjax.do"
+  	class="es.panaderiaovarrendeiro.gae.web.pedidos.PedidoListController">
+  	<property name="pedidoManager" ref="pedidoManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  	<property name="customerManager" ref="customerManager"/>
+  	<property name="ajax" value="true"/>
+  </bean>
+  
+   <bean id="pedidoProductListController" name="/pedidoProductList.do"
+  	class="es.panaderiaovarrendeiro.gae.web.pedidos.PedidoProductListController">
+  	<property name="pedidoManager" ref="pedidoManager"/>
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  	<property name="customerManager" ref="customerManager"/>
+  	<property name="ajax" value="false"/>
+  </bean>
+  
+  <bean id="adminmainController" name="/adminmain.do"
+  	class="es.panaderiaovarrendeiro.gae.web.AdminMainController">
+  	<property name="productBeanManager" ref="productBeanManager"/>
+  	<property name="noticeManager" ref="noticeManager"/>
+  </bean>
+
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="requestContextAttribute" value="rc"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+  </bean>
+
+</beans>

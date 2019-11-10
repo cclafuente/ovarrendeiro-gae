@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/productList.do</url>
+    <description>Mantiene viva la aplicacion</description>
+    <schedule>every 40 minutes</schedule>
+  </cron>
+   <cron>
+    <url>/clearsession</url>
+    <description>Elimina sesion</description>
+    <schedule>every 45 minutes</schedule>
+  </cron>
+</cronentries>

@@ -1,0 +1,549 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.panaderiaovarrendeiro.gae</groupId>
+  <artifactId>panaderiaovarrendeiro-gae</artifactId>
+  <packaging>war</packaging>
+  <version>7.0</version>
+  <name>Panaderia O Varrendeiro - GAE</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+  	<!-- apache deps -->
+  	<dependency>
+  		<groupId>commons-fileupload</groupId>
+  		<artifactId>commons-fileupload</artifactId>
+  		<version>1.2.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-io</groupId>
+  		<artifactId>commons-io</artifactId>
+  		<version>1.4</version>
+  	</dependency>
+  	<!-- spring dependencies -->
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-core</artifactId>
+  		<version>2.5</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-aop</artifactId>
+  		<version>2.5</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-tx</artifactId>
+  		<version>2.5</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-web</artifactId>
+  		<version>2.5</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-webmvc</artifactId>
+  		<version>2.5</version>
+  	</dependency>
+
+
+  	<!-- Web server APIs, provided by the server -->
+  	<dependency>
+  		<groupId>org.apache.geronimo.specs</groupId>
+  		<artifactId>geronimo-servlet_2.5_spec</artifactId>
+  		<version>1.2</version>
+  		<scope>provided</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.geronimo.specs</groupId>
+  		<artifactId>geronimo-jsp_2.1_spec</artifactId>
+  		<version>1.0.1</version>
+  		<scope>provided</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.geronimo.specs</groupId>
+  		<artifactId>geronimo-el_1.0_spec</artifactId>
+  		<version>1.0.1</version>
+  		<scope>provided</scope>
+  	</dependency>
+
+  	<!-- embedded JSTL -->
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>jstl</artifactId>
+  		<version>1.2</version>
+  		<scope>provided</scope>
+  	</dependency>
+
+  	<dependency>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>servlet-api</artifactId>
+  		<version>2.4</version>
+  		<scope>provided</scope>
+  	</dependency>
+	
+	<!-- ajax apis -->
+	<dependency>
+    	<groupId>org.directwebremoting</groupId>
+    	<artifactId>dwr</artifactId>
+    	<version>2.0.1</version>
+	</dependency>
+
+
+  	<!-- acceso a datos -->
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-orm</artifactId>
+  		<version>2.5</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-jdbc</artifactId>
+  		<version>2.5</version>
+  	</dependency>
+  	<!-- acceso a datos appengine -->
+  	<dependency>
+  		<groupId>javax.jdo</groupId>
+  		<artifactId>jdo2-api</artifactId>
+  		<version>2.3-eb</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.datanucleus</groupId>
+  		<artifactId>datanucleus-jpa</artifactId>
+  		<version>1.1.5</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>javax.persistence</groupId>
+  				<artifactId>persistence-api</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+  	<!-- Google App Engine persistence runtime -->
+  	<dependency>
+  		<groupId>com.google.appengine.orm</groupId>
+  		<artifactId>datanucleus-appengine</artifactId>
+  		<version>1.0.4.1</version>
+  	</dependency>
+  	<!--  <dependency>
+		<groupId>com.google.appengine.orm</groupId>
+		<artifactId>datanucleus-appengine</artifactId>
+		<version>2.0.1.1</version>
+	</dependency>-->
+  	<dependency>
+  		<groupId>com.google.appengine</groupId>
+  		<artifactId>appengine-api-1.0-sdk</artifactId>
+  		<version>${gae.version}</version>
+  	</dependency>
+  	<!--<dependency>
+  		<groupId>com.google.appengine</groupId>
+  		<artifactId>appengine-api-labs</artifactId>
+  		<version>${gae.version}</version>
+  		<scope>test</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.google.appengine</groupId>
+  		<artifactId>appengine-api-stubs</artifactId>
+  		<version>${gae.version}</version>
+  		<scope>test</scope>
+  	</dependency>
+-->
+  	<!-- datanucleus para guardar datos -->
+  	<dependency>
+  		<groupId>org.datanucleus</groupId>
+  		<artifactId>datanucleus-core</artifactId>
+  		<version>1.1.5</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>javax.transaction</groupId>
+  				<artifactId>transaction-api</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+
+  	<dependency>
+  		<groupId>javax.transaction</groupId>
+  		<artifactId>transaction-api</artifactId>
+  		<version>1.1</version>
+  	</dependency>
+
+	<!-- web services - restlet lib -->
+	<dependency>  
+   		<groupId>org.restlet.jse</groupId>  
+   		<artifactId>org.restlet</artifactId>  
+   		<version>2.0.0</version>  
+	</dependency>  
+	<dependency>  
+   		<groupId>org.restlet.jse</groupId>  
+   		<artifactId>org.restlet.ext.simple</artifactId>  
+   		<version>2.0.0</version>  
+	</dependency>
+	<dependency>
+		<groupId>org.restlet.gae</groupId>
+		<artifactId>org.restlet.ext.servlet</artifactId>
+		<version>2.0.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.restlet.gae</groupId>
+		<artifactId>org.restlet</artifactId>
+		<version>2.0.0</version>
+	</dependency>
+	<dependency>
+			<groupId>commons-betwixt</groupId>
+			<artifactId>commons-betwixt</artifactId>
+			<version>0.8</version>
+		</dependency>
+  	<!-- tests unitarios con junit -->
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.4</version>
+  	</dependency>
+  	<!-- herramientas para realizar pruebas y montar un entorno de test 
+  	<dependency>
+  		<groupId>com.google.appengine</groupId>
+  		<artifactId>appengine-local-runtime</artifactId>
+  		<version>${gae.version}</version>
+  		<scope>test</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-test</artifactId>
+  		<version>2.5.4</version>
+  	</dependency>
+-->
+  </dependencies>
+  <build>
+    <finalName>OVarrendeiro</finalName>
+    <plugins>
+	   <plugin>
+	    	<artifactId>maven-compiler-plugin</artifactId>
+	    	<version>2.0.2</version>
+	    	 <configuration>
+	    		<source>1.6</source>
+	    		<target>1.6</target>
+	    	</configuration>
+	    </plugin>
+	    <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-war-plugin</artifactId>
+    <version>2.1.1</version>
+    <configuration>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </configuration>
+</plugin>
+	    <plugin>
+	    	<groupId>org.apache.maven.plugins</groupId>
+	    	<artifactId>maven-eclipse-plugin</artifactId>
+	    	<version>2.6</version>
+	    	  <configuration><!--  GAE_CONTAINER already have these jars 
+	    		<excludes> 
+	    			<exclude>org.datanucleus:datanucleus-core</exclude>
+	    			<exclude>org.datanucleus:datanucleus-jpa</exclude>
+	    			<exclude>
+	    				com.google.appengine:datanucleus-appengine
+	    			</exclude>
+	    			<exclude>
+	    				org.apache.geronimo.specs:geronimo-servlet_2.5_spec
+	    			</exclude>
+	    			<exclude>
+	    				org.apache.geronimo.specs:geronimo-jsp_2.1_spec
+	    			</exclude>
+	    			<exclude>
+	    				org.apache.geronimo.specs:geronimo-el_1.0_spec
+	    			</exclude>
+	    			<exclude>
+	    				org.apache.geronimo.specs:geronimo-jpa_3.0_spec
+	    			</exclude>
+	    			<exclude>
+	    				org.apache.geronimo.specs:geronimo-jta_1.1_spec
+	    			</exclude>
+	    			<exclude>javax.jdo:jdo2-api</exclude>
+	    			<exclude>
+	    				com.google.appengine:appengine-api
+	    			</exclude>
+	    		</excludes>-->
+	    		<downloadSources>false</downloadSources>
+	    		<buildOutputDirectory>
+	    			${basedir}/target/WEB-INF/classes
+	    		</buildOutputDirectory>
+	    		<wtpversion>1.5</wtpversion>
+	    		<wtpapplicationxml>true</wtpapplicationxml>
+	    		<additionalProjectnatures>
+	    			<projectnature>
+	    				com.google.appengine.eclipse.core.gaeNature
+	    			</projectnature>
+	    			<projectnature>
+	    				com.google.gdt.eclipse.core.webAppNature
+	    			</projectnature>
+	    		</additionalProjectnatures>
+	    		<additionalBuildcommands>
+	    			<buildcommand>
+	    				com.google.appengine.eclipse.core.enhancerbuilder
+	    			</buildcommand>
+	    			<buildcommand>
+	    				com.google.appengine.eclipse.core.projectValidator
+	    			</buildcommand>
+	    			<buildcommand>
+	    				com.google.gdt.eclipse.core.webAppProjectValidator
+	    			</buildcommand>
+	    		</additionalBuildcommands>
+	    		<classpathContainers>
+	    			<classpathContainer>
+	    				org.eclipse.jdt.launching.JRE_CONTAINER
+	    			</classpathContainer>
+	    			<classpathContainer>
+	    				com.google.appengine.eclipse.core.GAE_CONTAINER
+	    			</classpathContainer>
+	    		</classpathContainers>
+	    	</configuration>
+	    </plugin>
+	    
+	   <!-- INTRODUCIR LA HORA DE COMPILACION -->
+		<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.0-beta-1</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<buildNumberPropertyName>
+						fechaGeneracion
+					</buildNumberPropertyName>
+					<format>{0,date,dd-MM-yyyy HH:mm:ss}</format>
+					<items>
+						<item>timestamp</item>
+					</items>
+				</configuration>
+		</plugin>
+		
+		<plugin>
+        	<groupId>org.apache.maven.plugins</groupId>
+        	<artifactId>maven-javadoc-plugin</artifactId>
+        	<version>2.8</version>
+      	</plugin>
+      	
+      	<plugin>
+        <groupId>com.google.appengine</groupId>
+        <artifactId>appengine-maven-plugin</artifactId>
+        <version>${gae.version}</version>
+        <configuration>                                     
+          <enableJarClasses>false</enableJarClasses>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>endpoints_get_discovery_doc</goal>
+              <!--goal>endpoints_get_client_lib</goal-->
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+	    
+	  	<plugin>
+	        <groupId>org.datanucleus</groupId>
+	        <artifactId>maven-datanucleus-plugin</artifactId>
+	        <version>1.1.4</version>
+	        <configuration>
+	          <verbose>true</verbose>
+	          <api>JPA</api>
+	          <mappingIncludes>**/model/**.class</mappingIncludes>
+	          <enhancerName>ASM</enhancerName>
+	        </configuration>
+	        <executions>
+	          <execution>
+	            <phase>compile</phase>
+	            <goals>
+	              <goal>enhance</goal>
+	            </goals>
+	          </execution>
+	        </executions>
+	        <dependencies>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-core</artifactId>
+                        <version>1.1.5</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>javax.transaction</groupId>
+                                <artifactId>transaction-api</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-rdbms</artifactId>
+                        <version>1.1.6</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.datanucleus</groupId>
+                        <artifactId>datanucleus-enhancer</artifactId>
+                        <version>1.1.4</version>
+                    </dependency>
+                    <dependency>
+           				<groupId>javax.jdo</groupId>
+            			<artifactId>jdo2-api</artifactId>
+            			<version>2.3-ec</version>
+            			<scope>runtime</scope>
+          			</dependency>
+                </dependencies>
+	      </plugin>
+	      <plugin>
+				<groupId>net.kindleit</groupId>
+				<artifactId>maven-gae-plugin</artifactId>
+				<version>${gae.plugin.version}</version>
+				<!-- <version>0.5.6</version> -->
+				<!--
+				<configuration> <sdkDir>${gae.home}</sdkDir> </configuration>
+				-->
+				<!-- <version>0.5.0</version> -->
+			</plugin>
+	</plugins>
+    <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.wsdd</include>
+					<include>**/*.xml</include>
+					<include>**/*.xsl</include>
+					<include>**/*.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.gif</exclude>
+					<exclude>**/*.png</exclude>
+					<exclude>**/*.jpg</exclude>
+					<exclude>**/*.jpeg</exclude>
+				</excludes>
+			</resource>
+		</resources>
+  </build>
+  
+  <properties>
+  		<!--<gae.plugin.version>0.9.0</gae.plugin.version>-->
+  		<gae.plugin.version>0.9.0</gae.plugin.version>
+  		<maven.test.skip>true</maven.test.skip>
+        <!--  <gae.version>1.4.0</gae.version>-->
+        <!--  <gae.version>1.5.0</gae.version>-->
+        <!--  <gae.version>1.7.0</gae.version>-->
+        <!--  <gae.version>1.8.8</gae.version>
+        <appengine.target.version>1.8.8</appengine.target.version>-->
+        <gae.version>1.9.32</gae.version>
+        <appengine.target.version>1.9.32</appengine.target.version>
+        <!-- port defaults to 8080 -->
+        <gae.port>8082</gae.port>
+  		<platform>windows</platform>
+  </properties>
+  
+  <profiles>
+  	<!-- ================= Production Settings Profile ================= -->
+  	<!-- Use "-P prod" when you want to use the settings in this profile -->
+  	<!-- =============================================================== -->
+  	<!--  <profile>
+  		<id>local</id>
+  		<dependencies>
+  			<dependency>
+  				<groupId>mysql</groupId>
+  				<artifactId>mysql-connector-java</artifactId>
+  				<version>5.1.10</version>
+  			</dependency>
+  			<dependency>
+  				<groupId>org.datanucleus</groupId>
+  				<artifactId>datanucleus-rdbms</artifactId>
+  				<version>1.1.6</version>
+  			</dependency>
+  		</dependencies>
+  		<build>
+  			<resources>
+  				<resource>
+  					<directory>src/main/conf/local</directory>
+  					<filtering>false</filtering>
+  				</resource>
+  			</resources>
+  		</build>
+  	</profile>
+  	
+  	<profile>
+  		<id>appengine</id>
+  		<build>
+  			<resources>
+  				<resource>
+  					<directory>src/main/conf/appengine</directory>
+  					<filtering>false</filtering>
+  				</resource>
+  			</resources>
+  		</build>
+  	</profile>
+-->
+  </profiles>
+
+
+  <repositories>
+   		<!--<repository>
+   			<id>local</id>
+   			<name>Local Repository</name>
+   			<url>file:////C:/utilidades/m2/repository</url>
+   		</repository>-->
+   		<repository>  
+   			<id>maven-restlet</id>  
+   			<name>Public online Restlet repository</name>  
+   			<url>http://maven.restlet.org</url>  
+		</repository>
+        <repository>
+            <id>datanucleus</id>
+            <name>Datanucleus Repository</name>
+            <url>http://www.datanucleus.org/downloads/maven2</url>
+        </repository>
+        <repository>
+            <id>gae-repo</id>
+            <name>gae repo plugin</name>
+            <url>http://maven-gae-plugin.googlecode.com/svn/repository</url>
+        </repository>
+        <repository>
+			<id>google-app-engine</id>
+			<url>https://oss.sonatype.org/content/repositories/google-releases/</url>
+		</repository> 
+        <repository>
+     		<id>www.mvnsearch.org</id>
+      		<name>www.mvnsearch.org</name>
+     	 	<url>http://www.mvnsearch.org/maven2/</url>
+    	</repository>
+        <repository>
+            <id>atlassian</id>
+            <name>Atlassian Repository</name>
+            <url>https://maven.atlassian.com/repository/centralmirror</url>
+        </repository>
+        <repository>
+      <id>gson</id>
+      <url>http://google-gson.googlecode.com/svn/mavenrepo</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>DataNucleus_2</id>
+            <url>http://www.datanucleus.org/downloads/maven2/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>gae-repo</id>
+            <url>http://maven-gae-plugin.googlecode.com/svn/repository/</url>
+        </pluginRepository>
+      <!--    <pluginRepository>
+            <id>local-repo-plugins</id>
+            <url>file:////C:/utilidades/m2/repository/</url>
+        </pluginRepository> -->
+    </pluginRepositories>
+    
+    
+    
+</project>

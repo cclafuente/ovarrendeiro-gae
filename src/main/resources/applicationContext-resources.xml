@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+  <bean id="datastoreService"
+        class="com.google.appengine.api.datastore.DatastoreServiceFactory"
+        factory-method="getDatastoreService"/>
+    <!-- Configure JDO for appengine using Spring ORM -->
+  
+  <bean id="pmf"
+        class="org.springframework.orm.jdo.LocalPersistenceManagerFactoryBean">
+    <property name="jdoProperties">
+      <props>
+        <prop key="javax.jdo.PersistenceManagerFactoryClass">
+          org.datanucleus.store.appengine.jdo.DatastoreJDOPersistenceManagerFactory
+        </prop>
+        <prop key="javax.jdo.option.ConnectionURL">
+          appengine
+        </prop>
+        <prop key="javax.jdo.option.NontransactionalRead">
+          true
+        </prop>
+        <prop key="javax.jdo.option.NontransactionalWrite">
+          true
+        </prop>
+        <prop key="javax.jdo.option.RetainValues">
+          true
+        </prop>
+        <prop key="datanucleus.appengine.autoCreateDatastoreTxns">
+          true
+        </prop>
+      </props>
+    </property>
+
+  </bean>
+</beans>

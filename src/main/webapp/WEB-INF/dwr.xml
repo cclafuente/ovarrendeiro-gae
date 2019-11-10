@@ -1,0 +1,20 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+<dwr>
+    <allow>
+        <create creator="spring" javascript="ProductManager">
+            <param name="beanName" value="productManager"/>
+            <include method="getAllProducts"/>
+        </create>
+  		<create creator="new" javascript="FacturaUtil">
+    		<param name="class" value="es.panaderiaovarrendeiro.gae.web.facturas.FacturaUtil"/>
+    		<include method="crearLineas"/>
+  		</create>
+        <convert converter="bean" match="es.panaderiaovarrendeiro.gae.model.Product"/>
+        <convert converter="bean" match="es.panaderiaovarrendeiro.gae.model.Factura"/>
+        <convert converter="bean" match="es.panaderiaovarrendeiro.gae.model.FacturaLinea"/>
+        <convert converter="bean" match="java.lang.StackTraceElement" />  
+        <convert converter="exception" match="java.lang.RuntimeException" />
+    </allow>
+</dwr>

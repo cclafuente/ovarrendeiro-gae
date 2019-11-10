@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://www.panaderiaovarrendeiro.es/sitemap.xml

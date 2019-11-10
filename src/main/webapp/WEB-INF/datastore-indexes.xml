@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datastore-indexes autoGenerate="true">
+    <datastore-index kind="Product" ancestor="false">
+        <property name="id" direction="asc"/>
+        <property name="lastUpdate" direction="desc" />
+        <property name="price" direction="asc"/>
+    </datastore-index>
+    <datastore-index kind="Factura" ancestor="true">
+        <property name="customerId" direction="asc"/>
+        <property name="fecha" direction="desc" />
+        <property name="pagado" direction="asc"/>
+    </datastore-index>
+    <datastore-index kind="Factura" ancestor="false" source="manual">
+        <property name="customerId" direction="asc"/>
+        <property name="pagado" direction="asc"/>
+        <property name="fecha" direction="asc"/>
+    </datastore-index>
+    <datastore-index kind="Pedido" ancestor="true">
+        <property name="customerId" direction="asc"/>
+        <property name="fechaEntrega" direction="desc" />
+    </datastore-index>
+    <datastore-index kind="FacturaLinea" ancestor="true" source="manual">
+        <property name="lineasFactura_INTEGER_IDX" direction="asc">
+    </property></datastore-index>
+    <datastore-index kind="PedidoLinea" ancestor="true" source="manual">
+        <property name="lineasPedido_INTEGER_IDX" direction="asc"/>
+    </datastore-index>
+</datastore-indexes>
+

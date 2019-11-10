@@ -1,0 +1,12 @@
+.slideShowGallery  {width:502px; background:#fff; border:4px solid #fff;}
+.slideShowGallery {font: normal 0.69em "Trebuchet MS"}
+.slideShowGallery dt {position:relative; width:450px; height:300px; margin-bottom:5px; background:#000 url(../img/loading.gif) no-repeat 50% 50% }
+.slideShowGallery dt a {position:relative; top:0; left:0; z-index:85;}
+.slideShowGallery dt img {width:100%; height:100%}
+.slideShowGallery  dd {margin:0; padding:0;}
+.slideShowGallery  dd img {width:95px; height:95px; margin-right:0.6%;}
+.slideShowGallery p{position:absolute; bottom:0; z-index:90; width:96%;padding:2px 2%;
+background:#000; /* para cambiar el color del parrafo sobre la fuente;*/
+color:#fff;
+}
+.slideShowGallery p strong { display:block; }

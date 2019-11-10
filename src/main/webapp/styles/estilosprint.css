@@ -1,0 +1,317 @@
+
+/* Global */
+body {
+	font: 76% Arial;
+	}
+
+#page-body { 
+	}
+
+a {
+	color: #CC0000;
+	outline: 0px;
+	text-decoration:none;
+}
+
+a:hover {
+	color: #660000;
+	text-decoration: none;
+	outline: 0px;
+}
+
+label{
+	font-weight: bolder;
+}
+
+@page {
+	margin: 1.5cm 0.5cm; 
+	@top-left{
+		content: "Impresión de factura";
+		font-size: 8pt;
+	}
+	@top-right{
+		content: "www.panaderiaovarrendeiro.es";
+	}
+	@bottom-left {
+		font-size: 8pt;
+		font-weight: bold;
+	}
+	@bottom-right {
+		content: counter(page) "&#160;/&#160;" counter(pages);
+		font-size: 10pt;
+	}
+}
+
+/* ESTILOS PARA A CABECEIRA XERAL */
+#contenedor{
+	padding-bottom: 10px;
+	text-align: left;
+	height: 500px;
+	background-repeat: no-repeat;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+
+#contenedor #cabecera{
+	display: none;
+}
+
+#contenedor #cabecera #tituloCabecera{
+	display: none;
+}
+
+#contenedor #cabecera #menu{
+	display: none;
+}
+
+#contenedor #cabecera #menu ul li{
+ 	display: none;
+}
+
+.menuActivo{
+	display: inline;
+}
+
+
+#contenedor #cabecera #titulocabecera{
+}
+
+#contenedor #cabecera #titulocabecera a{
+}
+
+#contenedor #cabecera #menuAdmin{
+	display: none;
+}
+
+#contenedor #cabecera #menuAdmin ul li{ 
+	display: none;
+}
+
+
+#contenedor #contenido{
+	margin: 3px 2px 3px 2px;
+	background-position:bottom left;
+	background-repeat:no-repeat;
+}
+
+#contenedor .subtitulo{
+	padding-left: 30px;
+	font-weight: bolder;
+	margin-bottom: 3px;
+}
+
+
+#contenedor .parrafo{
+	margin-left: 30px;
+	padding-botton: 5px;
+	width: 33%;
+}
+
+
+
+#contenedor ul li{
+	list-style: none;
+}
+
+
+#contenedor #descricion{
+	margin-left:15px;
+	margin-top:5px;
+	border-right:1px solid #003300;
+	float:left;
+	width:45%;
+	padding-right:15px;
+}
+
+#contenedor #localizacion{
+    float:left;
+    width:auto;
+	border-right:1px solid #003300;
+    height:auto;
+	padding-top:7px;
+	margin-top:5px;
+	padding-left:20px;
+	padding-right:20px
+}
+
+#contenedor #topcontenido{
+	height:15px;
+	padding-left:14px;
+	padding-right:10px;
+	padding-top:2px;
+}
+
+#contenedor #productList{
+	padding-top: 20px;
+}
+
+#contenedor #productForm {
+	background-color: #DDDDEE;
+	width: 250px;
+	padding-bottom: 20px;
+	margin-top: 20px;
+}
+
+/* Sortable tables */
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+table.sortable tbody tr{
+	font-weight: lighter;
+	font-size: smaller;
+}
+
+table.sortable tbody tr TD{
+	border-bottom: 1px solid #eee;
+}
+
+.box1 {
+	background-color: #f0f0f0;
+	/*height: 50px;*/
+	/*margin: 0 auto 15px auto;*/
+	padding: 20px;
+	border: 1px solid #d7d7d7;
+	float: left;
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	behavior: url('/styles/border-radius.htc');
+}
+
+.button{
+	visibility: hidden;
+}
+
+table.contenedorLineas tbody tr TD{
+	border-bottom: 1px solid #eee;
+}
+
+.detalleFactura{
+	list-style-image: none;
+	float: left; 
+	width: 400px;
+}
+
+.detalleFacturaCliente{
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.fila {
+	float: left;
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 1px dotted #b8b8b8;
+}
+
+.fila span {
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+	width: 100%;
+	font-weight: bold;
+}
+
+.fila ul {
+	float: left;
+	width: 100%;
+	margin: 5px 0 0;
+}
+
+.fila li {
+	float: left;
+	display: block;
+	margin: 0 10px 0 0;
+}
+
+.fila li.ultimo {
+	margin-right: 0;
+}
+
+.fila li label {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	float: left;
+	color: #434343;
+}
+
+.fila li label sup {
+	line-height: 4px;
+}
+
+.fila li input {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	float: left;
+	clear: both;
+	color: #777777;
+	border: 1px solid #bfbfbf;
+	padding: 2px;
+	margin: 3px 0 0;
+}
+
+.fila li input.w100 {
+	width: 100px;
+}
+
+.fila li input.w110 {
+	width: 110px;
+}
+
+.fila li select.w90 {
+	width: 90px;
+}
+
+.fila li input.w75 {
+	width: 75px;
+}
+
+.fila li select.w110 {
+	width: 110px;
+}
+
+.fila li select {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	float: left;
+	clear: both;
+	color: #777777;
+	border: 1px solid #bfbfbf;
+	padding: 1px 0 1px 2px;
+	margin: 3px 0 0;
+}
+
+.fila li select.w150 {
+	width: 150px;
+}
+
+.fila li input.w150 {
+	width: 150px;
+}
+
+.w600{
+	width: 600px;	
+}
+.w500{
+	width: 500px;	
+}
+.w300{
+	width: 300px;
+}
+.w100{
+	width: 100px;
+}
+.w92{
+	width: 92px;
+}
+.w75{
+	width: 75px;
+}
+
+.noprint{
+	display: none;
+}

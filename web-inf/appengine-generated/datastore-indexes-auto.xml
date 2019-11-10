@@ -1,0 +1,10 @@
+<!-- Indices written at Fri, 1 Apr 2011 18:20:34 CEST -->
+
+<datastore-indexes>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="FacturaLinea" ancestor="true" source="auto">
+        <property name="lineasFactura_INTEGER_IDX" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

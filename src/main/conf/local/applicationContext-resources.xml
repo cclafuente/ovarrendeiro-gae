@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+
+<beans>
+	<bean id="pmf"
+        class="org.springframework.orm.jdo.LocalPersistenceManagerFactoryBean">
+    <property name="jdoProperties">
+      <props>
+        <prop key="javax.jdo.PersistenceManagerFactoryClass">
+          org.datanucleus.store.appengine.jdo.DatastoreJDOPersistenceManagerFactory
+        </prop>
+        <prop key="javax.jdo.option.ConnectionURL">jdbc:mysql://localhost:3306/sergrauto</prop>
+        <prop key="javax.jdo.option.NontransactionalRead">true</prop>
+        <prop key="javax.jdo.option.NontransactionalWrite">true</prop>
+        <prop key="javax.jdo.option.RetainValues">true</prop>
+        <prop key="datanucleus.storeManagerType">rdbms</prop>
+        <prop key="datanucleus.appengine.autoCreateDatastoreTxns">true</prop>
+        <prop key="datanucleus.ConnectionUserName">root</prop>        
+        <prop key="datanucleus.ConnectionPassword">root</prop> 
+        <prop key="datanucleus.ConnectionDriverName">com.mysql.jdbc.Driver</prop>
+        <prop key="datanucleus.appengine.autoCreateDatastoreTxns">value</prop>
+    	<prop key="datanucleus.autoStartMechanism">None</prop>
+    	<prop key="datanucleus.validateTables">true</prop>
+    	<prop key="datanucleus.validateConstraints">false</prop>
+    	<prop key="datanucleus.validateColumns">true</prop>
+      </props>
+    </property>
+  </bean>
+
+
+  <bean id="datastoreService"
+        class="com.google.appengine.api.datastore.DatastoreServiceFactory"
+        factory-method="getDatastoreService"/>
+
+</beans>
